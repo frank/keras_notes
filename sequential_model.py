@@ -42,6 +42,10 @@ three arguments.
     'metrics=['accuracy']'. This can also be a custom metric function.
 '''
 
+############
+# EXAMPLES #
+############
+
 # For a multi-class classification problem
 model.compile(optimizer='rmsprop',
               loss='categorical_crossentropy',
@@ -65,3 +69,40 @@ def mean_pred(y_true, y_pred):
 model.compile(optimizer='rmsprop',
               loss='binary_crossentropy',
               metrics=['accuracy', mean_pred])
+
+'''
+Models are trained on Numpy arrays with input data and labels.
+To train a model use the 'fit' function.
+'''
+
+# Fit function used for training.
+fit(self, x, y, batch_size=32, epochs=10, verbose=1,
+    callbacks=None, validation_split=0.0, validation_data=None,
+    shuffle=True, class_weight=None, sample_weight=None, initial_epoch=0)
+
+'''
+    x :=    input data, as Numpy array or list of Numpy arrays (in case of
+            multiple inputs)
+    y :=    labels, as Numpy array
+    verbose :=  0 for no logging, 1 for progress bar logging, 2 for one log
+                line per epoch
+    callbacks :=    list of Callback class instances to use. (callbacks are
+                    functions to be used at given stages of the training
+                    phase, to get statistics or other information).
+    validation_split := float 0 < x < 1, proportion of data to be used as
+                        validation data
+    validation_data :=  (x_val, y_val) tuple or (x_val, y_val, val_sample_weights)
+                        tuple to use as validation data. Overrides
+                        validation_split.
+    shuffle :=  boolean or str 'batch'. Whether to shuffle the samples at
+                each epoch. 'batch' is to be used to del with HDF5 data.
+    class_weight := dictionary that maps each class to a weight during training.
+                    Used to scale the loss function during training.
+    sample_weight :=    Numpy array of weights to be applied to the input data.
+                        This either has 1:1 proportion with the input, or in the
+                        case of temporal data you can have a 2D array with shape
+                        (samples, sequence_length) to apply a different scaling
+                        to the samples at different time steps.
+                        In that case, include 'sample_weight_mode="temporal"'
+                        in the compile() method.
+'''
