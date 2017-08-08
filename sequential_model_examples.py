@@ -1,5 +1,7 @@
 '''
-For a single-input model with 2 classes (binary classification)
+###################################################################
+# For a single-input model with 2 classes (binary classification) #
+###################################################################
 '''
 
 model = Sequential()
@@ -19,7 +21,9 @@ model.fit(data, labels, epochs=10, batch_size=32)
 
 
 '''
-For a single-input model with 10 classes (categorical classification)
+#########################################################################
+# For a single-input model with 10 classes (categorical classification) #
+#########################################################################
 '''
 
 model = Sequential()
@@ -42,7 +46,9 @@ model.fit(data, one_hot_labels, epochs=10, batch_size=32)
 
 
 '''
-Multilayer Perceptron (MLP) for multi-class softmax classification
+######################################################################
+# Multilayer Perceptron (MLP) for multi-class softmax classification #
+######################################################################
 '''
 
 from keras.models import Sequential
@@ -78,7 +84,9 @@ score = model.evaluate(x_test, y_test, batch_size=128)
 
 
 '''
-MLP for binary classification
+#################################
+# MLP for binary classification #
+#################################
 '''
 
 import numpy as np
@@ -108,7 +116,9 @@ model.fit(x_train, y_train,
 score = model.evaluate(x_test, y_test, batch_size=128)
 
 '''
-VGG-like convnet
+####################
+# VGG-like convnet #
+####################
 '''
 
 import numpy as np
@@ -150,7 +160,9 @@ score = model.evaluate(x_test, y_test, batch_size=32)
 
 
 '''
-Sequence classification with LSTM
+#####################################
+# Sequence classification with LSTM #
+#####################################
 '''
 
 from keras.models import Sequential
@@ -173,7 +185,9 @@ score = model.evaluate(x_test, y_test, batch_size=16)
 
 
 '''
-Sequence classification with 1D convolutions
+################################################
+# Sequence classification with 1D convolutions #
+################################################
 '''
 
 from keras.models import Sequential
@@ -200,7 +214,9 @@ score = model.evaluate(x_test, y_test, batch_size=16)
 
 
 '''
-Stacked LSTM for sequence classification:
+############################################
+# Stacked LSTM for sequence classification #
+############################################
 
 3 LSTM stacked layers, so as to make the model capable
 of learning higher-level temporal representations.
@@ -242,7 +258,9 @@ model.fit(x_train, y_train,
 
 
 '''
-Same stacked LSTM model, rendered "stateful"
+################################################
+# Same stacked LSTM model, rendered "stateful" #
+################################################
 
 Which means that the interlat states are reused as initial states
 for the samples of the next batch. The result is longer processed

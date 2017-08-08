@@ -1,14 +1,10 @@
 '''
-The sequential model is a linear stack of layers
-'''
-
-from keras.models import Sequential
-from keras.layers import Dense, Activation
-
-'''
+The sequential model is a linear stack of layers.
 It's enough to initialize a sequential model and gradually add
 the layers and activation functions to apply.
 '''
+
+from keras.models import Sequential
 
 model = Sequential()
 
@@ -24,6 +20,8 @@ model = Sequential()
   - To specify a fixed batch size for the input, have 'batch_size' as argument
     to a layer.
 '''
+
+from keras.layers import Dense, Activation
 
 model.add(Dense(32, input_shape=(784,)))
 model.add(Activation('relu'))
@@ -41,10 +39,6 @@ three arguments.
   - A list of metrics. For classification tasks, this should be
     'metrics=['accuracy']'. This can also be a custom metric function.
 '''
-
-############
-# EXAMPLES #
-############
 
 # For a multi-class classification problem
 model.compile(optimizer='rmsprop',
